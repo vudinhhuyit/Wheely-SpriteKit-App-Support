@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wheely – Support & Privacy</title>
+<meta name="description" content="Support and privacy policy for the Wheely iOS game.">
+<style>
+  :root {
+    --bg: #f4f8fd;
+    --card: #ffffff;
+    --text: #1d2733;
+    --muted: #5b6878;
+    --accent: #5b6b8c;
+    --sky: #2388ec;
+    --line: #dde6f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1620;
+      --card: #18222f;
+      --text: #e7edf4;
+      --muted: #9aa8b8;
+      --accent: #9fb0d6;
+      --sky: #5aa9f5;
+      --line: #273444;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, #1e7fe0, #9fd0f7);
+    color: #fff;
+    padding: 56px 16px 40px;
+    text-align: center;
+  }
+  header img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+  header h1 { margin: 16px 0 4px; font-size: 32px; }
+  header p { margin: 0; opacity: .9; }
+
+  .lang-switch {
+    position: absolute; top: 16px; right: 16px;
+    display: inline-flex; padding: 3px; border-radius: 999px;
+    background: rgba(255,255,255,.22);
+  }
+  .lang-switch button {
+    border: 0; background: transparent; color: #fff; cursor: pointer;
+    font: 600 14px/1 inherit; font-family: inherit;
+    padding: 8px 14px; border-radius: 999px;
+  }
+  .lang-switch button[aria-pressed="true"] { background: #fff; color: #1d6fc4; }
+
+  nav { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  nav a {
+    color: #fff; text-decoration: none; font-weight: 600;
+    padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,.2);
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 8px 16px 48px; }
+  section {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px; margin-top: 24px; scroll-margin-top: 16px;
+  }
+  h2 { margin-top: 0; font-size: 24px; }
+  h3 { margin-bottom: 4px; font-size: 18px; }
+  a { color: var(--sky); }
+  .muted { color: var(--muted); font-size: 14px; }
+  .contact {
+    display: inline-block; margin-top: 8px; padding: 10px 18px; border-radius: 10px;
+    background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+    word-break: break-all;
+  }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 16px 32px; }
+
+  /* Only the selected language is shown. */
+  [data-lang] { display: none; }
+  html[lang="en"] [data-lang="en"], html[lang="vi"] [data-lang="vi"] { display: revert; }
+</style>
+<script>
+  // Pick the language before first paint: ?lang= > saved choice > browser language.
+  (function () {
+    var lang = new URLSearchParams(location.search).get("lang");
+    if (lang !== "en" && lang !== "vi") {
+      try { lang = localStorage.getItem("lang"); } catch (e) { lang = null; }
+    }
+    if (lang !== "en" && lang !== "vi") {
+      lang = (navigator.language || "en").toLowerCase().indexOf("vi") === 0 ? "vi" : "en";
+    }
+    document.documentElement.lang = lang;
+  })();
+</script>
+</head>
+<body>
+<header>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-set-lang="en">EN</button>
+    <button type="button" data-set-lang="vi">VI</button>
+  </div>
+  <img src="icon.png" alt="Wheely">
+  <h1 data-lang="en">Wheely: Little Car Puzzles</h1>
+  <h1 data-lang="vi">Wheely: Xe nhỏ giải đố</h1>
+  <p data-lang="en">Help Wheely reach the flag</p>
+  <p data-lang="vi">Giúp Wheely về tới đích</p>
+  <nav>
+    <a href="#about"><span data-lang="en">About</span><span data-lang="vi">Giới thiệu</span></a>
+    <a href="#support"><span data-lang="en">Support</span><span data-lang="vi">Hỗ trợ</span></a>
+    <a href="#privacy"><span data-lang="en">Privacy Policy</span><span data-lang="vi">Quyền riêng tư</span></a>
+  </nav>
+</header>
+
+<main>
+  <!-- About -->
+  <section id="about">
+    <div data-lang="en">
+      <h2>About</h2>
+      <p>Wheely is a cheerful physics puzzle adventure starring a brave little red car. In every level Wheely has to reach the finish flag, and the road is never simple: broken bridges, saws, security cameras, magnets, rivers and even a police chase stand in his way.</p>
+      <p>Tap Wheely to start or stop him, and work the world around him: turn wheels, pull levers, push buttons, drag sliders and time every move just right.</p>
+
+      <h3>What awaits you</h3>
+      <ul>
+        <li>A race-track tower with a lift you crank by hand</li>
+        <li>A car transporter on the highway</li>
+        <li>A guarded warehouse with sweeping cameras</li>
+        <li>A scrapyard crane with a giant magnet</li>
+        <li>A car factory where you choose Wheely’s paint, wheels and windows</li>
+        <li>A harbour, a sawmill, a water garden and a Ferris wheel</li>
+        <li>A highway chase with traps for the police</li>
+        <li>An underwater dock, a power station, a wind tunnel, a mountain road and the big race</li>
+      </ul>
+
+      <h3>Features</h3>
+      <ul>
+        <li>15 hand-made puzzle levels, each with its own machines and surprises</li>
+        <li>Real physics: suspension, pulleys, water, wind and falling rocks</li>
+        <li>Customise Wheely’s colour, wheels and windows in the factory</li>
+        <li>Level map to replay any unlocked level</li>
+        <li>Fully offline, with no ads, no in-app purchases and no data collection</li>
+        <li>Plays on iPhone and iPad</li>
+      </ul>
+      <p>Can you bring Wheely to the finish in all 15 levels?</p>
+    </div>
+
+    <div data-lang="vi">
+      <h2>Giới thiệu</h2>
+      <p>Wheely là game phiêu lưu giải đố vật lý vui nhộn với nhân vật chính là chú xe đỏ nhỏ dũng cảm. Ở mỗi màn, Wheely phải về tới lá cờ đích, nhưng đường đi chẳng hề dễ dàng: cầu gãy, lưỡi cưa, camera an ninh, nam châm, dòng nước và cả một cuộc rượt đuổi của cảnh sát.</p>
+      <p>Chạm vào Wheely để chú chạy hoặc dừng lại, và điều khiển mọi thứ xung quanh: xoay bánh lái, kéo cần gạt, bấm nút, kéo thanh trượt và canh thời điểm thật chuẩn.</p>
+
+      <h3>Những điều đang chờ bạn</h3>
+      <ul>
+        <li>Tòa tháp đường đua với thang máy quay tay</li>
+        <li>Xe chở ô tô trên xa lộ</li>
+        <li>Nhà kho có camera an ninh quét qua lại</li>
+        <li>Cần cẩu nam châm khổng lồ ở bãi phế liệu</li>
+        <li>Nhà máy ô tô, nơi bạn chọn màu sơn, bánh xe và kính cho Wheely</li>
+        <li>Bến cảng, xưởng cưa, khu vườn nước và vòng đu quay</li>
+        <li>Cuộc rượt đuổi trên xa lộ với bẫy dành cho cảnh sát</li>
+        <li>Bến tàu dưới nước, nhà máy điện, đường hầm gió, đường núi và cuộc đua lớn</li>
+      </ul>
+
+      <h3>Tính năng</h3>
+      <ul>
+        <li>15 màn giải đố thủ công, mỗi màn có máy móc và bất ngờ riêng</li>
+        <li>Vật lý chân thực: giảm xóc, ròng rọc, nước, gió và đá lăn</li>
+        <li>Tùy chỉnh màu sơn, bánh xe và kính của Wheely trong nhà máy</li>
+        <li>Bản đồ màn chơi để chơi lại bất kỳ màn nào đã mở khoá</li>
+        <li>Chơi hoàn toàn offline, không quảng cáo, không mua trong ứng dụng, không thu thập dữ liệu</li>
+        <li>Chơi trên iPhone và iPad</li>
+      </ul>
+      <p>Bạn có đưa được Wheely về đích trong cả 15 màn không?</p>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section id="support">
+    <div data-lang="en">
+      <h2>Support</h2>
+      <p>Need help with Wheely, found a bug, or have a suggestion? Send us an email and we will get back to you as soon as we can.</p>
+      <a class="contact" href="mailto:vudinhhuyit@gmail.com?subject=Wheely%20Support">vudinhhuyit@gmail.com</a>
+      <p class="muted">Please include your device model and iOS / iPadOS version.</p>
+
+      <h3>How do I play?</h3>
+      <p>Tap Wheely to start or stop him. Use the levers, wheels, buttons and sliders in each level to clear his way, then drive him to the finish flag.</p>
+
+      <h3>I am stuck</h3>
+      <p>Tap the restart button at the bottom right to try the level again. The pause button opens a menu where you can go back to the level map.</p>
+
+      <h3>How do I turn the sound off?</h3>
+      <p>Use the speaker (effects) and note (music) buttons on the main menu or at the bottom right during a level.</p>
+
+      <h3>Can I change Wheely’s colour?</h3>
+      <p>Yes. In the car factory level you choose the paint, wheels and window tint, and Wheely keeps them in every level.</p>
+
+      <h3>My progress is gone</h3>
+      <p>Progress is stored only on your device. Deleting the app erases the unlocked levels.</p>
+    </div>
+
+    <div data-lang="vi">
+      <h2>Hỗ trợ</h2>
+      <p>Cần trợ giúp, gặp lỗi hoặc có góp ý về Wheely? Hãy gửi email cho chúng tôi, chúng tôi sẽ phản hồi sớm nhất có thể.</p>
+      <a class="contact" href="mailto:vudinhhuyit@gmail.com?subject=Wheely%20Support">vudinhhuyit@gmail.com</a>
+      <p class="muted">Vui lòng ghi kèm tên thiết bị và phiên bản iOS / iPadOS.</p>
+
+      <h3>Chơi như thế nào?</h3>
+      <p>Chạm vào Wheely để chú chạy hoặc dừng lại. Dùng cần gạt, bánh lái, nút bấm và thanh trượt trong mỗi màn để dọn đường, rồi đưa chú về tới lá cờ đích.</p>
+
+      <h3>Tôi bị kẹt</h3>
+      <p>Chạm nút chơi lại ở góc dưới bên phải để thử lại màn. Nút tạm dừng mở menu để quay về bản đồ màn chơi.</p>
+
+      <h3>Làm sao tắt âm thanh?</h3>
+      <p>Dùng nút loa (hiệu ứng) và nút nốt nhạc (nhạc nền) ở menu chính hoặc ở góc dưới bên phải khi đang chơi.</p>
+
+      <h3>Tôi có thể đổi màu cho Wheely không?</h3>
+      <p>Có. Ở màn nhà máy ô tô, bạn chọn màu sơn, bánh xe và màu kính, và Wheely giữ nguyên trong mọi màn.</p>
+
+      <h3>Tiến trình của tôi bị mất</h3>
+      <p>Tiến trình chỉ được lưu trên thiết bị của bạn. Xoá ứng dụng sẽ xoá các màn đã mở khoá.</p>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy">
+    <div data-lang="en">
+      <h2>Privacy Policy</h2>
+      <p class="muted">Last updated: October 16, 2026</p>
+      <p>This policy explains how the Wheely app (“the app”) handles your information.</p>
+
+      <h3>Data we collect</h3>
+      <p>We do not collect, store, or share any personal data. The app has no accounts, no analytics, no advertising, and no tracking, and it does not connect to the internet.</p>
+
+      <h3>Data stored on your device</h3>
+      <p>The app saves your unlocked levels, Wheely’s colours and your sound settings locally on your device. This data never leaves your device and is deleted when you delete the app.</p>
+
+      <h3>Third-party services</h3>
+      <p>The app does not use any third-party SDKs, advertising networks, or analytics services.</p>
+
+      <h3>Children’s privacy</h3>
+      <p>Because the app collects no personal information, it is safe for players of all ages.</p>
+
+      <h3>Changes to this policy</h3>
+      <p>If this policy changes, we will update this page and the date above.</p>
+
+      <h3>Contact</h3>
+      <p>Questions about this policy? Email <a href="mailto:vudinhhuyit@gmail.com">vudinhhuyit@gmail.com</a>.</p>
+    </div>
+
+    <div data-lang="vi">
+      <h2>Chính sách quyền riêng tư</h2>
+      <p class="muted">Cập nhật lần cuối: 16/10/2026</p>
+      <p>Chính sách này giải thích cách ứng dụng Wheely (“ứng dụng”) xử lý thông tin của bạn.</p>
+
+      <h3>Dữ liệu chúng tôi thu thập</h3>
+      <p>Chúng tôi không thu thập, lưu trữ hay chia sẻ bất kỳ dữ liệu cá nhân nào. Ứng dụng không có tài khoản, không phân tích hành vi, không quảng cáo, không theo dõi và không kết nối Internet.</p>
+
+      <h3>Dữ liệu lưu trên thiết bị</h3>
+      <p>Ứng dụng lưu các màn đã mở khoá, màu sắc của Wheely và cài đặt âm thanh ngay trên thiết bị của bạn. Dữ liệu này không bao giờ rời khỏi thiết bị và sẽ bị xoá khi bạn xoá ứng dụng.</p>
+
+      <h3>Dịch vụ bên thứ ba</h3>
+      <p>Ứng dụng không sử dụng SDK bên thứ ba, mạng quảng cáo hay dịch vụ phân tích nào.</p>
+
+      <h3>Quyền riêng tư của trẻ em</h3>
+      <p>Vì ứng dụng không thu thập thông tin cá nhân nào, người chơi ở mọi lứa tuổi đều có thể sử dụng an toàn.</p>
+
+      <h3>Thay đổi chính sách</h3>
+      <p>Nếu chính sách này thay đổi, chúng tôi sẽ cập nhật trang này và ngày ở trên.</p>
+
+      <h3>Liên hệ</h3>
+      <p>Có thắc mắc về chính sách này? Gửi email tới <a href="mailto:vudinhhuyit@gmail.com">vudinhhuyit@gmail.com</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Wheely</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll("[data-set-lang]");
+    var titles = { en: "Wheely – Support & Privacy", vi: "Wheely – Hỗ trợ & Quyền riêng tư" };
+    function apply(lang) {
+      root.lang = lang;
+      document.title = titles[lang];
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)); });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        apply(b.dataset.setLang);
+        try { localStorage.setItem("lang", b.dataset.setLang); } catch (e) {}
+      });
+    });
+    apply(root.lang);
+  })();
+</script>
+</body>
+</html>
